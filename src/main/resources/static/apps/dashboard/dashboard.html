@@ -1,0 +1,92 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<button class="btn btn-success" data-ng-click="logout()" style="float: right;">Logout</button>
+		</div>
+		<div class="col-md-12">
+			<form class="form-horizontal" name="dashForm">
+				<fieldset>
+					<div id="legend">
+						<legend class="">Dashboard</legend>
+					</div>
+					<div ng-if="isShowForm">
+						<div class="control-group">
+							<!-- Name-->
+							<label class="control-label" for="name">Name</label>
+							<div class="controls">
+								<input type="text" id="name" name="name"
+									placeholder="Enter your product Name" class="input-xlarge"
+									ng-model="product.name" required>
+									<span ng-show="dashForm.name.$touched && dashForm.name.$error.required">
+									Product name is required.</span><br />
+							</div>
+						</div>
+						<div class="control-group">
+							<!-- code -->
+							<label class="control-label" for="code">Code</label>
+							<div class="controls">
+								<input type="text" id="code" name="code"
+									placeholder="Enter your Product code" class="input-xlarge"
+									ng-model="product.code" required>
+									<span ng-show="dashForm.code.$touched && dashForm.code.$error.required">
+									Product code is required.</span><br />
+							</div>
+						</div>
+	
+						<div class="control-group">
+							<!-- Description-->
+							<label class="control-label" for="desc">Description</label>
+							<div class="controls">
+								<input type="text" id="desc" name="desc"
+									placeholder="Enter your product Description"
+									class="input-xlarge" ng-model="product.description"  required>
+									<span ng-show="dashForm.description.$touched && dashForm.description.$error.required">
+									Product Description is required.</span><br />
+							</div>
+						</div>
+						<div class="control-group">
+							<!-- Button -->
+							<div class="controls">
+								<button class="btn btn-success" data-ng-click="saveOrUpdate()">ADD</button>
+							</div>
+						</div>
+					</div>
+					<button class="btn btn-success" data-ng-click="create()" style="float: right;">Create</button>
+					<div class="control-group">
+						<div class="panel panel-default">
+							<!-- Default panel contents -->
+							<div class="panel-heading">
+								<span class="lead">List of Products </span>
+							</div>
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="table table-hover " border="3"
+										ng-table="tableParams">
+
+
+										<tr ng-repeat="row in $data">
+											<td data-title="'Sr No'" >{{$index + 1}}</td>
+											<td data-title="'Name'" filter="{name: 'text'}"
+												sortable="'name'">{{row.name}}</td>
+											<td data-title="'Code'" filter="{code: 'text'}"
+												sortable="'code'">{{row.code}}</td>
+											<td data-title="'Description'" filter="{description: 'text'}"
+												sortable="'description'">{{row.description}}</td>
+											<td><button type="button" data-ng-click="edit(row)"
+													class="btn btn-success custom-width">Edit</button></td>
+											<td><button type="button"
+													data-ng-click="deleteProduct(row.id)"
+													class="btn btn-danger custom-width">Delete</button></td>
+										</tr>
+
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>

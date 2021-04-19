@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+		<div class="span12" style="margin-top: 120px">
+			<form class="form-horizontal" name="registerForm" >
+			  <fieldset>
+			    <div id="legend">
+			      <legend class="">Register</legend>
+			    </div>
+			    <div class="control-group">
+			      <!-- Username -->
+			      <label class="control-label"  for="name">Name</label>
+			      <div class="controls">
+			        <input type="text" id="name" name="name" placeholder="Enter your Name" class="input-xlarge" ng-model="user.name" required >
+			      </div>
+			    </div>
+			    
+			    <div class="control-group">
+			      <!-- EmailId -->
+			      <label class="control-label"  for="email">EmailID</label>
+			      <div class="controls">
+			        <input type="text" id="emailid" name="emailid" placeholder="Enter your email address" class="form-control is-invalid" ng-model="user.emailId" ng-pattern="emailFormat"  required>
+  						<small style="color: red;" id="passwordHelp" class="text-danger" ng-show="registerForm.emailid.$error.required && registerForm.submitted">
+  						Required! 
+  						</small>
+  						<small style="color: red;" id="passwordHelp" class="text-danger" ng-show="registerForm.emailid.$error.pattern && registerForm.submitted">
+  						Not valid email!
+  						</small>
+  		      	</div>
+			    </div>
+			    <div class="control-group">
+			      <!-- Mobile no-->
+			      <label class="control-label" for="mobile">Mobile No</label>
+			      <div class="controls">
+			        <input type="text" id="mobile" name="mobile" placeholder="Enter your Mobile No" class="input-xlarge" ng-model="user.mobile" required>
+			      </div>
+			    </div>
+			    <div class="control-group">
+			      <!-- Password-->
+			      <label class="control-label" for="mobile">PassWord</label>
+			      <div class="controls">
+			        <input type="password" id="password" name="password" placeholder="Enter your Password" class="input-xlarge" ng-model="user.password" required>
+			      </div>
+			    </div>
+			   
+			    <div class="control-group">
+			      <!-- Button -->
+			      <div class="controls">
+			        <button class="btn btn-success" data-ng-click="register()"  >Register</button>
+			        
+			        <button class="btn btn-success" data-ng-click="login()">Login</button>
+			        </div>
+			    </div>
+			  </fieldset>
+			</form>
+		</div>
